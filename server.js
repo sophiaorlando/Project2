@@ -2,8 +2,14 @@
 const express = require('express')
 const session = require('express-session')
 // Requiring passport as we've configured it
+<<<<<<< HEAD
 const passport = require('./config/passport')
 const script = require('./models/beaches.js')
+=======
+const passport = require("./config/passport");
+// const script = require("./models/apicall.js");
+
+>>>>>>> 8c0303ea2b33d3432e29ead6553bb3488d8ce91d
 
 // Setting up port and requiring models for syncing
 const PORT = process.env.PORT || 8080

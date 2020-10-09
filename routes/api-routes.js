@@ -9,7 +9,6 @@ module.exports = function(app) {
 	// Otherwise the user will be sent an error
 	app.get('/api/beaches', function(req, res) {
 		res.send('Hello')
-
 		axios({
 			method: 'GET',
 			url: 'https://api.coastal.ca.gov/ccd/v1/locations',
