@@ -7,3 +7,5 @@ USE beach_db;
 
 // CREATED TABLE FOR SIGNUP/LOGIN INFO
 SELECT * FROM Users;
+
+SELECT * FROM beachInfos;
