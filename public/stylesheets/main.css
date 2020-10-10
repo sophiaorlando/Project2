@@ -1,0 +1,12 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background: blue;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* p {
+	font-size: 78px;
+} */
