@@ -1,5 +1,6 @@
 // Requiring path to so we can use relative routes to our HTML files
 const path = require('path')
+const db = require('../models')
 
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require('../config/middleware/isAuthenticated')
@@ -13,6 +14,43 @@ module.exports = function(app) {
 		// res.sendFile(path.join(__dirname, "../public/signup.html"));
 
 		res.render('homepage')
+	})
+
+	app.get('/api/counties', function(req, res) {
+		db.beachInfo.findAll({}).then(function(dbBeach) {
+			res.json(dbBeach)
+		})
+	})
+
+	app.get('/:county', function(req, res) {
+		const county = req.params.county
+		// console.log('----------------')
+
+		db.beachInfo
+			.findAll({
+				where: {
+					county: req.params.county,
+				},
+			})
+			.then(function(data) {
+				// const hbsObject = {
+				// 	counties: data,
+				// }
+				// console.log(data)
+				// res.render('county', {
+				// 	style: 'county.css',
+				// })
+
+				const dataString = JSON.stringify(data)
+				// console.log(dataString)
+				const dataParsed = JSON.parse(dataString)
+				console.log(dataParsed)
+
+				res.render('county', {
+					style: 'county.css',
+					counties: dataParsed,
+				})
+			})
 	})
 
 	app.get('/team', (req, res) => {
