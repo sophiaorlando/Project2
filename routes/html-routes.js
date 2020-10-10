@@ -22,39 +22,10 @@ module.exports = function(app) {
 		})
 	})
 
-	app.get('/:county', function(req, res) {
-		const county = req.params.county
-		// console.log('----------------')
-
-		db.beachInfo
-			.findAll({
-				where: {
-					county: req.params.county,
-				},
-			})
-			.then(function(data) {
-				// const hbsObject = {
-				// 	counties: data,
-				// }
-				// console.log(data)
-				// res.render('county', {
-				// 	style: 'county.css',
-				// })
-
-				const dataString = JSON.stringify(data)
-				// console.log(dataString)
-				const dataParsed = JSON.parse(dataString)
-				console.log(dataParsed)
-
-				res.render('county', {
-					style: 'county.css',
-					counties: dataParsed,
-				})
-			})
-	})
-
 	app.get('/team', (req, res) => {
-		res.render('team')
+		res.render('team', {
+			style: 'style.css',
+		})
 	})
 
 	app.get('/about', (req, res) => {
@@ -77,5 +48,28 @@ module.exports = function(app) {
 	// If a user who is not logged in tries to access this route they will be redirected to the signup page
 	app.get('/members', isAuthenticated, (req, res) => {
 		res.render('members')
+	})
+
+	app.get('/:county', function(req, res) {
+		const county = req.params.county
+		// console.log('----------------')
+
+		db.beachInfo
+			.findAll({
+				where: {
+					county: req.params.county,
+				},
+			})
+			.then(function(data) {
+				const dataString = JSON.stringify(data)
+				// console.log(dataString)
+				const dataParsed = JSON.parse(dataString)
+				console.log(dataParsed)
+
+				res.render('county', {
+					style: 'county.css',
+					counties: dataParsed,
+				})
+			})
 	})
 }
