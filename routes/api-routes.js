@@ -3,7 +3,7 @@ const db = require("../models");
 const passport = require("../config/passport");
 const axios = require("axios");
 
-module.exports = function (app) {
+module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
@@ -11,8 +11,8 @@ module.exports = function (app) {
     res.send("Hello");
     axios({
       method: "GET",
-      url: "https://api.coastal.ca.gov/ccd/v1/locations"
-    }).then(response => {
+      url: "https://api.coastal.ca.gov/ccd/v1/locations",
+    }).then((response) => {
       const beachArr = response.data;
       for (let index = 0; index < beachArr.length; index++) {
         const beachData = beachArr[index];
@@ -28,7 +28,7 @@ module.exports = function (app) {
           whatToBring: beachData.What_to_bring,
           organization: beachData.organization,
           phone: beachData.phone,
-          email: beachData.email
+          email: beachData.email,
         });
       }
 
@@ -40,7 +40,7 @@ module.exports = function (app) {
     // Sending back a password, even a hashed password, isn't a good idea
     res.json({
       email: req.user.email,
-      id: req.user.id
+      id: req.user.id,
     });
   });
 
@@ -50,12 +50,12 @@ module.exports = function (app) {
   app.post("/api/signup", (req, res) => {
     db.User.create({
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
     })
       .then(() => {
         res.redirect(307, "/api/login");
       })
-      .catch(err => {
+      .catch((err) => {
         res.status(401).json(err);
       });
   });
@@ -76,7 +76,7 @@ module.exports = function (app) {
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
         email: req.user.email,
-        id: req.user.id
+        id: req.user.id,
       });
     }
   });

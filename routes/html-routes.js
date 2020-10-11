@@ -6,7 +6,7 @@ const db = require('../models')
 const isAuthenticated = require('../config/middleware/isAuthenticated')
 
 module.exports = function(app) {
-	app.get('/beach/:id', function(req, res) {
+	app.get('/beach/:id', (req, res) => {
 		const beachId = req.params.id
 
 		db.beachInfo
@@ -54,7 +54,10 @@ module.exports = function(app) {
 	})
 
 	app.get('/about', (req, res) => {
-		res.render('about')
+		res.render('about', {
+			main: 'main.css',
+			style: 'about.css',
+		})
 	})
 
 	app.get('/signup', (req, res) => {
@@ -66,7 +69,11 @@ module.exports = function(app) {
 		if (req.user) {
 			res.redirect('/members')
 		}
-		res.render('login')
+		res.render('login', {
+			main: 'main.css',
+			style: 'login.css',
+			script: 'login.js',
+		})
 	})
 
 	app.get('/:county', (req, res) => {
