@@ -1,14 +1,26 @@
-<div class="main">
-    <h1>Hello World</h1>
+<div class="container">
+
+    <div class="title">
+        <h3>All the beaches for {{countyName}} County:</h3>
+
+
+    </div>
+
+
+
 
     {{#each counties}}
-    <p>{{siteName}}</p>
-    <p>{{address}}</p>
-    <p>{{website}}</p>
-    <p>{{organization}}</p>
-    <p>{{phone}}</p>
-    <p>{{email}}</p>
-    <p>-----</p>
+    <div class="row display-flex beach">
+        <div class="col-lg-10">
+            <h4>{{siteName}}</h4>
+            <h5>{{address}}</h5>
+            <h6>{{organization}}</h6>
+        </div>
+
+        <div class="col-lg-2 arrow">
+            <i class="fas fa-chevron-right"></i>
+        </div>
+    </div>
 
     {{/each}}
 

@@ -80,6 +80,7 @@ module.exports = function(app) {
 					style: 'county.css',
 					script: 'county.js',
 					counties: dataParsed,
+					countyName: dataParsed[0].county,
 				})
 			})
 	})
