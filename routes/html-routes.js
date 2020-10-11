@@ -45,8 +45,6 @@ module.exports = function(app) {
 			style: 'style.css',
 			script: 'homepage.js',
 		})
-
-		res.render('homepage')
 	})
 
 	app.get('/team', (req, res) => {
