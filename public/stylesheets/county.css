@@ -35,6 +35,7 @@ i {
 .beach:hover {
 	background: #fea43e;
 	border-bottom: #fea43e;
+	cursor: pointer;
 }
 
 .arrow {
