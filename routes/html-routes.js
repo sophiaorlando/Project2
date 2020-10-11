@@ -6,6 +6,34 @@ const db = require("../models");
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
+  app.get("/beach/:id", (req, res) => {
+    const beachId = req.params.id;
+
+    db.beachInfo
+      .findAll({
+        where: {
+          id: beachId,
+        },
+      })
+      .then((data) => {
+        const dataString = JSON.stringify(data);
+        const dataParsed = JSON.parse(dataString);
+        console.log(dataParsed);
+
+        res.render("beach", {
+          main: "main.css",
+          style: "beach.css",
+          script: "beach.js",
+          siteName: dataParsed[0].siteName,
+          address: dataParsed[0].address,
+          website: dataParsed[0].website,
+          organization: dataParsed[0].organization,
+          phone: dataParsed[0].phone,
+          email: dataParsed[0].email,
+        });
+      });
+  });
+
   app.get("/", (req, res) => {
     // If the user already has an account send them to the members page
     // if (req.user) {
@@ -21,15 +49,8 @@ module.exports = function(app) {
     res.render("homepage");
   });
 
-  app.get("/api/counties", (req, res) => {
-    db.beachInfo.findAll({}).then((dbBeach) => {
-      res.json(dbBeach);
-    });
-  });
-
   app.get("/team", (req, res) => {
     res.render("team", {
-      main: "main.css",
       style: "style.css",
     });
   });
@@ -57,18 +78,7 @@ module.exports = function(app) {
     });
   });
 
-  // Here we've add our isAuthenticated middleware to this route.
-  // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  app.get("/members", isAuthenticated, (req, res) => {
-    res.render("members", {
-      main: "main.css",
-      style: "members.css",
-      script: "members.js",
-    });
-  });
-
   app.get("/:county", (req, res) => {
-    const county = req.params.county;
     // console.log('----------------')
 
     db.beachInfo
@@ -81,14 +91,25 @@ module.exports = function(app) {
         const dataString = JSON.stringify(data);
         // console.log(dataString)
         const dataParsed = JSON.parse(dataString);
-        console.log(dataParsed);
+        // console.log(dataParsed)
 
         res.render("county", {
           main: "main.css",
           style: "county.css",
           script: "county.js",
           counties: dataParsed,
+          countyName: dataParsed[0].county,
         });
       });
+  });
+
+  // Here we've add our isAuthenticated middleware to this route.
+  // If a user who is not logged in tries to access this route they will be redirected to the signup page
+  app.get("/members", isAuthenticated, (req, res) => {
+    res.render("members", {
+      main: "main.css",
+      style: "members.css",
+      script: "members.js",
+    });
   });
 };
