@@ -1,8 +1,147 @@
+/* General Styling */
 body {
+	background: white;
+}
+
+.row.display-flex {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.row.display-flex > [class*='col-'] {
+	flex-grow: 1;
+	padding: 0.51rem;
+}
+
+/* Header  */
+.bg {
 	background: #edf0f2;
+}
+
+.main {
+	padding: 2rem 0rem;
 }
 
 .title {
 	padding: 4rem 0rem 2rem 0rem;
+}
+
+.title_underline {
+	width: 4rem;
+	height: 0.2rem;
+	background: #263238;
+	margin: 2rem 0rem 1rem 0rem;
+}
+
+.title_infos {
+	display: flex;
+	flex-direction: row;
+	/* justify-content: space-between; */
+}
+
+.title_infos > a,
+p {
+	margin-right: 1rem;
+}
+
+section {
+	padding: 2rem 0rem 2rem 0rem;
+}
+
+/* .events.row {
+	padding: 1rem;
+} */
+
+.event_title {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: baseline;
+}
+
+.create_btn {
+	padding: 0.6rem 0.8rem;
 	background: #ff9721;
+	border-radius: 0.2rem;
+	border: none;
+	font-size: 12px;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+
+.create_btn:hover {
+	background: #fea43e;
+	cursor: pointer;
+}
+
+.event_item {
+	padding: 1.5rem 0rem;
+	border-bottom: 1px solid #edf0f2;
+}
+
+.event_info {
+	display: flex;
+	flex-direction: row;
+}
+
+.event_info > h6 {
+	padding: 1rem 0.5rem 0rem 0rem;
+}
+
+.event_item:hover {
+	background: #edf0f2;
+	cursor: pointer;
+}
+
+.arrow {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 1200px) {
+	/*Tablets [601px -> 1200px]*/
+}
+@media only screen and (max-width: 600px) {
+	/*Big smartphones [426px -> 600px]*/
+
+	.infos {
+		display: flex;
+		flex-direction: column;
+		/* justify-content: space-between; */
+	}
+
+	.infos > p,
+	a {
+		padding: 0.5rem 0rem;
+	}
+
+	.event_info {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.event_info > h6 {
+		padding: 0.5rem 0rem;
+	}
+}
+@media only screen and (max-width: 425px) {
+	/*Small smartphones [325px -> 425px]*/
+
+	.infos {
+		display: flex;
+		flex-direction: column;
+		/* justify-content: space-between; */
+	}
+
+	.infos > p,
+	a {
+		padding: 0.5rem 0rem;
+	}
+
+	.event_info {
+		display: flex;
+		flex-direction: column;
+	}
 }

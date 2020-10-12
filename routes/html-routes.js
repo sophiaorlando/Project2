@@ -24,12 +24,7 @@ module.exports = function(app) {
 					main: 'main.css',
 					style: 'beach.css',
 					script: 'beach.js',
-					siteName: dataParsed[0].siteName,
-					address: dataParsed[0].address,
-					website: dataParsed[0].website,
-					organization: dataParsed[0].organization,
-					phone: dataParsed[0].phone,
-					email: dataParsed[0].email,
+					beach: dataParsed[0],
 				})
 			})
 	})
