@@ -3,7 +3,7 @@ const db = require("../models");
 const passport = require("../config/passport");
 const axios = require("axios");
 
-module.exports = function (app) {
+module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
@@ -44,6 +44,24 @@ module.exports = function (app) {
     });
   });
 
+  app.get("/api/countyName", (req, res) => {
+    // const county = req.params.county;
+    // console.log('----------------')
+
+    db.beachInfo
+      .create({
+        where: {
+          county: req.params.county
+        }
+      })
+      .then(data => {
+        const dataString = JSON.stringify(data);
+        // console.log(dataString)
+        // const dataParsed = JSON.parse(dataString);
+        console.log(dataString);
+        res.render("homepage");
+      });
+  });
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error

@@ -12,9 +12,12 @@ module.exports = function(app) {
     //   res.redirect("/members");
     // }
     // res.sendFile(path.join(__dirname, "../public/signup.html"));
+
+    /////////////////////////////////////////////////////////////////////
+
     res.render("homepage", {
       style: "style.css",
-      script: "homepage.js"
+      script: "../public/js/homepage.js"
     });
 
     res.render("homepage");

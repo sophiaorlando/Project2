@@ -26,7 +26,19 @@
                 <p>
                     Join others in keeping California's beaches clean!
                 </p>
-                <button class="button" style="vertical-align:middle"><span>Browse Clean Ups</span></button>
+                <div class="btn-group dropright">
+                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Browse Counties
+                    </button>
+                    <div>
+                        <ul class="dropdown-menu col-6" aria-labelledby="dropdownMenuLink">
+                            {{!-- {{#each states}} --}}
+                            <li><a class="dropdown-item" href="#" data-state="">Hello</a></li>
+                            {{!-- {{/each}} --}}
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
