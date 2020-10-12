@@ -61,28 +61,13 @@ module.exports = function(app) {
 		})
 	})
 
-	// BEACH
-	app.get('/beach/:id', (req, res) => {
-		const beachId = req.params.id
-
-		db.beachInfo
-			.findAll({
-				where: {
-					id: beachId,
-				},
-			})
-			.then((data) => {
-				const dataString = JSON.stringify(data)
-				const dataParsed = JSON.parse(dataString)
-				console.log(dataParsed)
-
-				res.render('beach', {
-					main: 'main.css',
-					style: 'beach.css',
-					script: 'beach.js',
-					beach: dataParsed[0],
-				})
-			})
+	// CREATE EVENT
+	app.get('/createevent', (req, res) => {
+		res.render('createevent', {
+			main: 'main.css',
+			style: 'createevent.css',
+			script: 'createevent.js',
+		})
 	})
 
 	// COUNTY
@@ -106,7 +91,30 @@ module.exports = function(app) {
 					style: 'county.css',
 					script: 'county.js',
 					counties: dataParsed,
-					countyName: dataParsed[0],
+				})
+			})
+	})
+
+	// BEACH
+	app.get('/beach/:id', (req, res) => {
+		const beachId = req.params.id
+
+		db.beachInfo
+			.findAll({
+				where: {
+					id: beachId,
+				},
+			})
+			.then((data) => {
+				const dataString = JSON.stringify(data)
+				const dataParsed = JSON.parse(dataString)
+				console.log(dataParsed)
+
+				res.render('beach', {
+					main: 'main.css',
+					style: 'beach.css',
+					script: 'beach.js',
+					beach: dataParsed[0],
 				})
 			})
 	})
