@@ -62,12 +62,27 @@ module.exports = function(app) {
 	})
 
 	// CREATE EVENT
-	app.get('/createevent', (req, res) => {
-		res.render('createevent', {
-			main: 'main.css',
-			style: 'createevent.css',
-			script: 'createevent.js',
-		})
+	app.get('/createevent/:id', (req, res) => {
+		db.beachInfo
+			.findAll({
+				where: {
+					id: req.params.id,
+				},
+			})
+			.then(function(data) {
+				console.log(data)
+				const dataString = JSON.stringify(data)
+				// console.log(dataString)
+				const dataParsed = JSON.parse(dataString)
+				console.log(dataParsed)
+
+				res.render('createevent', {
+					main: 'main.css',
+					style: 'createevent.css',
+					script: 'createevent.js',
+					beach: dataParsed,
+				})
+			})
 	})
 
 	// COUNTY

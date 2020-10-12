@@ -13,12 +13,8 @@ dark: #263238
 }
 
 body {
-	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-family: 'Mukta', sans-serif;
 }
-
-/* p {
-	font-size: 78px;
-} */
 
 /* BUTTONS */
 .button {
@@ -127,5 +123,5 @@ ul {
 }
 
 #sticky-footer {
-  flex-shrink: none;
+	flex-shrink: none;
 }
