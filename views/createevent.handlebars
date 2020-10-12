@@ -1,1 +1,71 @@
-<h1>Hello World</h1>
+<div class="container">
+
+    <div class="title">
+        <h3>Create a New Event</h3>
+    </div>
+
+    <form>
+        <div class="form-group">
+            <label for="eventType">Chose a beach</label>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Chose a Beach
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#" id="cleaning">Cleaning</a>
+                    <a class="dropdown-item" href="#" id="sensitization">Sensitization</a>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="eventType">Chose an Event Type</label>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Chose Event Type
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#" id="cleaning">Cleaning</a>
+                    <a class="dropdown-item" href="#" id="sensitization">Sensitization</a>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    {{!-- Date and Time Picker --}}
+
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1"
+                        placeholder="Select a Date" />
+                    <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
+                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker2"
+                        placeholder="Select a Time" />
+                    <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-clock"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+</div>
