@@ -9,11 +9,11 @@ dark: #263238
 */
 
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 body {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 /* p {
@@ -22,86 +22,106 @@ body {
 
 /* BUTTONS */
 .button {
-  display: inline-block;
-  border-radius: 12px;
-  background-color: lightslategrey;
-  border: none;
-  color: #ffffff;
-  text-align: center;
-  font-size: 16px;
-  padding: 20px;
-  width: 200px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 0;
+	display: inline-block;
+	border-radius: 12px;
+	background-color: lightslategrey;
+	border: none;
+	color: #ffffff;
+	text-align: center;
+	font-size: 16px;
+	padding: 20px;
+	width: 200px;
+	transition: all 0.5s;
+	cursor: pointer;
+	margin: 0;
 }
 
 .button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: 0.5s;
 }
 
 .button span:after {
-  content: "\00bb";
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
+	content: '\00bb';
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	right: -20px;
+	transition: 0.5s;
 }
 
 .button:hover span {
-  padding-right: 25px;
+	padding-right: 25px;
 }
 
 .button:hover span:after {
-  opacity: 1;
-  right: 0;
-  font-family: "Mukta", sans-serif;
+	opacity: 1;
+	right: 0;
+	font-family: 'Mukta', sans-serif;
 }
 
 h1 {
-  font-size: 76px;
-  font-weight: 800;
+	font-size: 58px;
+	font-weight: 800;
+	margin: 0rem;
+	padding: 0rem;
 }
 
 h2 {
-  font-size: 64px;
-  font-weight: 600;
+	font-size: 46px;
+	font-weight: 600;
+	margin: 0rem;
+	padding: 0rem;
 }
 
 h3 {
-  font-size: 48px;
-  font-weight: 600;
+	font-size: 38px;
+	font-weight: 600;
+	margin: 0rem;
+	padding: 0rem;
 }
 
 h4 {
-  font-size: 26px;
-  font-weight: 400;
+	font-size: 26px;
+	font-weight: 400;
+	margin: 0rem;
+	padding: 0rem;
 }
 
 h5 {
-  font-size: 20px;
-  font-weight: 200;
+	font-size: 20px;
+	font-weight: 200;
+	margin: 0rem;
+	padding: 0rem;
 }
 
 h6 {
-  font-size: 14px;
-  font-weight: 800;
+	font-size: 12px;
+	font-weight: 500;
+	margin: 0rem;
+	padding: 0rem;
+	text-transform: uppercase;
 }
 
-p {
-  font-size: 16px;
-  font-weight: 200;
+p,
+a {
+	font-size: 16px;
+	font-weight: 200;
+	margin: 0rem;
+	padding: 0rem;
 }
 
 li {
-  font-size: 16px;
-  font-weight: 400;
+	font-size: 16px;
+	font-weight: 400;
+	margin: 0rem;
+	padding: 0rem;
 }
 
 ul {
-  list-style-type: none;
+	list-style-type: none;
+	margin: 0rem;
+	padding: 0rem;
 }

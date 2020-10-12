@@ -19,20 +19,15 @@ module.exports = function(app) {
         const dataString = JSON.stringify(data);
         const dataParsed = JSON.parse(dataString);
         console.log(dataParsed);
-
-        res.render("beach", {
-          main: "main.css",
-          style: "beach.css",
-          script: "beach.js",
-          siteName: dataParsed[0].siteName,
-          address: dataParsed[0].address,
-          website: dataParsed[0].website,
-          organization: dataParsed[0].organization,
-          phone: dataParsed[0].phone,
-          email: dataParsed[0].email,
-        });
-      });
-  });
+      
+				res.render('beach', {
+					main: 'main.css',
+					style: 'beach.css',
+					script: 'beach.js',
+					beach: dataParsed[0],
+				})
+			})
+	})
 
   app.get("/", (req, res) => {
     // If the user already has an account send them to the members page
@@ -91,15 +86,16 @@ module.exports = function(app) {
         const dataParsed = JSON.parse(dataString);
         // console.log(dataParsed)
 
-        res.render("county", {
-          main: "main.css",
-          style: "county.css",
-          script: "county.js",
-          counties: dataParsed,
-          countyName: dataParsed[0],
-        });
-      });
-  });
+				res.render('county', {
+					main: 'main.css',
+					style: 'county.css',
+					script: 'county.js',
+					counties: dataParsed,
+					countyName: dataParsed[0],
+				})
+			})
+	})
+
 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page

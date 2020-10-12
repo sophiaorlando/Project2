@@ -38,6 +38,14 @@ i {
 	cursor: pointer;
 }
 
+.beach_infos > h4 {
+	margin-bottom: 0.5rem;
+}
+
+.beach_infos > h5 {
+	margin-bottom: 1.5rem;
+}
+
 .arrow {
 	display: flex;
 	align-items: center;
