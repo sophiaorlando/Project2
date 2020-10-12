@@ -125,3 +125,7 @@ ul {
 	margin: 0rem;
 	padding: 0rem;
 }
+
+#sticky-footer {
+  flex-shrink: none;
+}
