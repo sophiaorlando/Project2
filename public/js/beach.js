@@ -2,7 +2,7 @@ $(function() {
 	$('.create_btn').on('click', function(event) {
 		event.preventDefault()
 
-		window.location.href = `/create%20event`
+		window.location.href = `/createevent`
 
 		// alert(rowId)
 	})
