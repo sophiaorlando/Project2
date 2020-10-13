@@ -2,28 +2,30 @@
 
     <div class="title">
         <h3>Create a New Event for {{beach.[0].siteName}} Beach</h3>
+        <hr class="title_underline">
+    </div>
+</div>
+
+<div class="container">
+
+    {{!-- Dropdown Section --}}
+    <div class="dropdown_section">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Chose Event Type
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#" id="cleaning">Cleaning</a>
+            <a class="dropdown-item" href="#" id="sensitization">Sensitization</a>
+        </div>
     </div>
 
-    <form>
-        <div class="form-group">
-            <label for="eventType">Chose an Event Type</label>
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Chose Event Type
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#" id="cleaning">Cleaning</a>
-                    <a class="dropdown-item" href="#" id="sensitization">Sensitization</a>
-                </div>
-            </div>
-        </div>
-    </form>
+    {{!-- Time Section --}}
+    <div class="time_section">
 
-    {{!-- Date and Time Picker --}}
-
-    <div class="row">
-        <div class="col-sm-4">
+        <label for="input" class="label">Pick a date and time</label>
+        <div class="forms">
+            {{!-- date --}}
             <div class="form-group">
                 <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
                     <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1"
@@ -33,8 +35,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-sm-4">
+            {{!-- time --}}
             <div class="form-group">
                 <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
                     <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker2"
@@ -45,14 +46,25 @@
                 </div>
             </div>
         </div>
+
     </div>
 
+    {{!-- Event Title Section --}}
+    <div class="eventTitle_section">
+        <div class="form-group">
+            <label for="input" class="label">Event Title</label>
+            <input class="form-control" type="text" id="eventTitle" name="inputName" placeholder="Your Event Title"
+                value="" autocomplete="on" />
+        </div>
+    </div>
 
-
-
-
-
-
-
+    {{!-- Event Title Section --}}
+    <div class="eventDescription_section">
+        <div class="form-group">
+            <label for="input" class="label">Event Title</label>
+            <input class="form-control" type="text" id="eventTitle" name="inputName" placeholder="Your Event Title"
+                value="" autocomplete="on" />
+        </div>
+    </div>
 
 </div>
