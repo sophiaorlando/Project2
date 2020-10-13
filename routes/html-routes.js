@@ -18,7 +18,7 @@ module.exports = function(app) {
       const dataString = JSON.stringify(results);
       // console.log(dataString)
       const dataParsed = JSON.parse(dataString);
-      // console.log(dataParsed);
+      console.log(dataParsed);
       res.render("homepage", {
         style: "style.css",
         script: "homepage.js",
@@ -44,7 +44,10 @@ module.exports = function(app) {
   });
 
   app.get("/signup", (req, res) => {
-    res.render("signup");
+    res.render("signup", {
+      style: "signup.css",
+      script: "signup.js"
+    });
   });
 
   app.get("/login", (req, res) => {
