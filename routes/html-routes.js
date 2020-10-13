@@ -14,13 +14,17 @@ module.exports = function(app) {
     // res.sendFile(path.join(__dirname, "../public/signup.html"));
 
     /////////////////////////////////////////////////////////////////////
-
-    res.render("homepage", {
-      style: "style.css",
-      script: "../public/js/homepage.js"
+    db.beachInfo.findAll({}).then(results => {
+      const dataString = JSON.stringify(results);
+      // console.log(dataString)
+      const dataParsed = JSON.parse(dataString);
+      // console.log(dataParsed);
+      res.render("homepage", {
+        style: "style.css",
+        script: "homepage.js",
+        countyNames: dataParsed
+      });
     });
-
-    res.render("homepage");
   });
 
   app.get("/api/counties", (req, res) => {
