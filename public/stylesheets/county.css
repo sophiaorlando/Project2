@@ -1,8 +1,53 @@
-h1 {
-	color: blue;
+body {
+	background: #ff9721;
 }
 
-.main {
-	height: 100vh;
-	/* background: red; */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+i {
+	color: #263238;
+}
+
+/* title section */
+.title {
+	padding: 4rem 0rem 2rem 0rem;
+}
+
+.row.display-flex {
+	display: flex;
+	flex-wrap: wrap;
+}
+.row.display-flex > [class*='col-'] {
+	flex-grow: 1;
+}
+
+.beach {
+	padding: 1.5rem 0rem;
+	border-bottom: 1px solid #37474f;
+}
+
+.beach:hover {
+	background: #fea43e;
+	border-bottom: #fea43e;
+	cursor: pointer;
+}
+
+.beach_infos > h4 {
+	margin-bottom: 0.5rem;
+}
+
+.beach_infos > h5 {
+	margin-bottom: 1.5rem;
+}
+
+.arrow {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
 }

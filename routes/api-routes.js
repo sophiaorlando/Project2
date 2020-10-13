@@ -1,7 +1,7 @@
 // Requiring our models and passport as we've configured it
-const db = require("../models");
-const passport = require("../config/passport");
-const axios = require("axios");
+const db = require('../models');
+const passport = require('../config/passport');
+const axios = require('axios');
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -79,5 +79,12 @@ module.exports = function(app) {
         id: req.user.id
       });
     }
+  });
+
+  // Route for getting the events created
+  app.post("/api/events", (req, res) => {
+    console.log('-----------------------');
+    console.log(req.body);
+    res.json(req.body);
   });
 };

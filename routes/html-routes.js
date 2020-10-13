@@ -1,93 +1,139 @@
 // Requiring path to so we can use relative routes to our HTML files
-const path = require("path");
-const db = require("../models");
+const path = require('path')
+const db = require('../models')
 
 // Requiring our custom middleware for checking if a user is logged in
-const isAuthenticated = require("../config/middleware/isAuthenticated");
+const isAuthenticated = require('../config/middleware/isAuthenticated')
 
 module.exports = function(app) {
-  app.get("/", (req, res) => {
-    // If the user already has an account send them to the members page
-    // if (req.user) {
-    //   res.redirect("/members");
-    // }
-    // res.sendFile(path.join(__dirname, "../public/signup.html"));
+	// HOMEPAGE
+	app.get('/', (req, res) => {
+		// If the user already has an account send them to the members page
+		// if (req.user) {
+		//   res.redirect("/members");
+		// }
+		// res.sendFile(path.join(__dirname, "../public/signup.html"));
+		res.render('homepage', {
+			main: 'main.css',
+			style: 'style.css',
+			script: 'homepage.js',
+		})
+	})
 
-    /////////////////////////////////////////////////////////////////////
-    db.beachInfo.findAll({}).then(results => {
-      const dataString = JSON.stringify(results);
-      // console.log(dataString)
-      const dataParsed = JSON.parse(dataString);
-      console.log(dataParsed);
-      res.render("homepage", {
-        style: "style.css",
-        script: "homepage.js",
-        countyNames: dataParsed
-      });
-    });
-  });
+	// TEAM
+	app.get('/team', (req, res) => {
+		res.render('team', {
+			style: 'style.css',
+		})
+	})
 
-  app.get("/api/counties", (req, res) => {
-    db.beachInfo.findAll({}).then(dbBeach => {
-      res.json(dbBeach);
-    });
-  });
+	// ABOUT
+	app.get('/about', (req, res) => {
+		res.render('about', {
+			main: 'main.css',
+			style: 'about.css',
+		})
+	})
 
-  app.get("/team", (req, res) => {
-    res.render("team", {
-      style: "style.css"
-    });
-  });
+	// SIGNUP
+	app.get('/signup', (req, res) => {
+		res.render('signup')
+	})
 
-  app.get("/about", (req, res) => {
-    res.render("about");
-  });
+	app.get('/login', (req, res) => {
+		// If the user already has an account send them to the members page
+		if (req.user) {
+			res.redirect('/members')
+		}
+		res.render('login', {
+			main: 'main.css',
+			style: 'login.css',
+			script: 'login.js',
+		})
+	})
 
-  app.get("/signup", (req, res) => {
-    res.render("signup", {
-      style: "signup.css",
-      script: "signup.js"
-    });
-  });
+	// MEMBERS
+	app.get('/members', isAuthenticated, (req, res) => {
+		res.render('members', {
+			main: 'main.css',
+			style: 'members.css',
+			script: 'members.js',
+		})
+	})
 
-  app.get("/login", (req, res) => {
-    // If the user already has an account send them to the members page
-    if (req.user) {
-      res.redirect("/members");
-    }
-    res.render("login");
-  });
+	// CREATE EVENT
+	app.get('/createevent/:id', (req, res) => {
+		db.beachInfo
+			.findAll({
+				where: {
+					id: req.params.id,
+				},
+			})
+			.then(function(data) {
+				console.log(data)
+				const dataString = JSON.stringify(data)
+				// console.log(dataString)
+				const dataParsed = JSON.parse(dataString)
+				console.log(dataParsed)
 
-  // Here we've add our isAuthenticated middleware to this route.
-  // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  app.get("/members", isAuthenticated, (req, res) => {
-    res.render("members", {
-      style: "members.css",
-      script: "members.js"
-    });
-  });
+				res.render('createevent', {
+					main: 'main.css',
+					style: 'createevent.css',
+					script: 'createevent.js',
+					beach: dataParsed,
+				})
+			})
+	})
 
-  app.get("/:county", (req, res) => {
-    const county = req.params.county;
-    // console.log('----------------')
+	// COUNTY
+	app.get('/:county', (req, res) => {
+		// console.log('----------------')
 
-    db.beachInfo
-      .findAll({
-        where: {
-          county: req.params.county
-        }
-      })
-      .then(data => {
-        const dataString = JSON.stringify(data);
-        // console.log(dataString)
-        const dataParsed = JSON.parse(dataString);
-        console.log(dataParsed);
+		db.beachInfo
+			.findAll({
+				where: {
+					county: req.params.county,
+				},
+			})
+			.then((data) => {
+				const dataString = JSON.stringify(data)
+				// console.log(dataString)
+				const dataParsed = JSON.parse(dataString)
+				// console.log(dataParsed)
 
-        res.render("county", {
-          style: "county.css",
-          script: "county.js",
-          counties: dataParsed
-        });
-      });
-  });
-};
+				res.render('county', {
+					main: 'main.css',
+					style: 'county.css',
+					script: 'county.js',
+					counties: dataParsed,
+				})
+			})
+	})
+
+	// BEACH
+	app.get('/beach/:id', (req, res) => {
+		const beachId = req.params.id
+
+		db.beachInfo
+			.findAll({
+				where: {
+					id: beachId,
+				},
+			})
+			.then((data) => {
+				const dataString = JSON.stringify(data)
+				const dataParsed = JSON.parse(dataString)
+				console.log(dataParsed)
+
+				res.render('beach', {
+					main: 'main.css',
+					style: 'beach.css',
+					script: 'beach.js',
+					beach: dataParsed[0],
+				})
+			})
+	})
+
+	// Here we've add our isAuthenticated middleware to this route.
+	// If a user who is not logged in tries to access this route they will be redirected to the signup page
+}

@@ -1,0 +1,77 @@
+<header class="container-fluid bg">
+    <div class="container">
+
+        <div class="title">
+            <h3>{{beach.siteName}}</h3>
+            <h4>{{beach.organization}}</h4>
+            <hr class="title_underline">
+
+            <div class="title_infos">
+                <p>{{beach.address}}</p>
+                <a href="{{beach.website}}" target="_blank">Website</a>
+                <p>{{beach.phone}}</p>
+                <p>{{beach.email}}</p>
+            </div>
+        </div>
+
+    </div>
+
+</header>
+
+
+<div class="container main">
+
+    <section>
+        <div class="event_title">
+            <h5>Upcoming Events</h5>
+            <button class="create_btn" data-id={{beach.id}}>Create a New Event</button>
+        </div>
+
+        <hr>
+
+        <div class="row display-flex event_item" data-id={{id}}>
+            <div class="col-lg-10">
+                <h5>eventName</h5>
+                <div class="event_info">
+                    <h6>eventDate</h6>
+                    <h6>eventHour</h6>
+                </div>
+            </div>
+
+            <div class="col-lg-2 arrow">
+                <i class="fas fa-chevron-right"></i>
+            </div>
+        </div>
+
+        <div class="row display-flex event_item" data-id={{id}}>
+            <div class="col-lg-10">
+                <h5>eventName</h5>
+                <div class="event_info">
+                    <h6>eventDate</h6>
+                    <h6>eventHour</h6>
+                </div>
+            </div>
+
+            <div class="col-lg-2 arrow">
+                <i class="fas fa-chevron-right"></i>
+            </div>
+        </div>
+
+        <div class="row display-flex event_item" data-id={{id}}>
+            <div class="col-lg-10">
+                <h5>eventName</h5>
+                <div class="event_info">
+                    <h6>eventDate</h6>
+                    <h6>eventHour</h6>
+                </div>
+            </div>
+
+            <div class="col-lg-2 arrow">
+                <i class="fas fa-chevron-right"></i>
+            </div>
+        </div>
+
+
+    </section>
+
+</div>
