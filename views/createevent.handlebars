@@ -1,69 +1,82 @@
-<div class="container">
+<div class="wrapper">
 
-    <div class="title">
-        <h3>Create a New Event for {{beach.[0].siteName}} Beach</h3>
-        <hr class="title_underline">
+    <div class="left-section">
     </div>
-</div>
 
-<div class="container">
 
-    {{!-- Dropdown Section --}}
-    <div class="dropdown_section">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Chose Event Type
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#" id="cleaning">Cleaning</a>
-            <a class="dropdown-item" href="#" id="sensitization">Sensitization</a>
+
+    {{!-- right section --}}
+    <div class="right-section">
+        {{!-- Title Section --}}
+        <div class="container">
+            <div class="title" data-id={{beach.[0].id}}>
+                <h4>Create a New Event for {{beach.[0].siteName}} Beach</h4>
+                <hr class="title_underline">
+            </div>
         </div>
-    </div>
+        {{!-- Form Section --}}
+        <div class="container">
 
-    {{!-- Time Section --}}
-    <div class="time_section">
+            {{!-- Dropdown Section --}}
+            <div class="dropdown_section">
+                <select class="dropdown_btn" id="dropdownBtn" name="culture" aria-labelledby="dropdownMenuButton">
+                    <option value="" disabled selected>Select an Event Type</option>
+                    <option value="cleaning" class="dropdown-item">Cleaning</option>
+                    <option value="sensitization" class="dropdown-item">Sensitization</option>
+                </select>
+            </div>
 
-        <label for="input" class="label">Pick a date and time</label>
-        <div class="forms">
-            {{!-- date --}}
-            <div class="form-group">
-                <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
-                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1"
-                        placeholder="Select a Date" />
-                    <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
-                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+            {{!-- Time Section --}}
+            <div class="time_section">
+                <label for="input" class="label">Pick a date and time*</label>
+                <div class="forms">
+                    {{!-- date --}}
+                    <div class="form-group">
+                        <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                            <input type="text" class="form-control datetimepicker-input select-date"
+                                data-target="#datetimepicker1" placeholder="Select a Date" />
+                            <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    {{!-- time --}}
+                    <div class="form-group">
+                        <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
+                            <input type="text" class="form-control datetimepicker-input select-time"
+                                data-target="#datetimepicker2" placeholder="Select a Time" />
+                            <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-clock"></i></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            {{!-- time --}}
-            <div class="form-group">
-                <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
-                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker2"
-                        placeholder="Select a Time" />
-                    <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
-                        <div class="input-group-text"><i class="fa fa-clock"></i></div>
-                    </div>
+
+            {{!-- Event Title Section --}}
+            <div class="eventTitle_section">
+                <div class="form-group">
+                    <label for="input" class="label">Event Title*</label>
+                    <input class="form-control" type="text" id="eventTitle" name="inputName"
+                        placeholder="Your Event Title" value="" autocomplete="on" />
                 </div>
             </div>
-        </div>
 
-    </div>
+            {{!-- Event Description Section --}}
+            <div class="eventDescription_section">
+                <div class="form-group">
+                    <label for="input" class="label">Event Description*</label>
+                    <textarea class="form-control" id="eventDescription" rows="6" style="resize: none;"></textarea>
 
-    {{!-- Event Title Section --}}
-    <div class="eventTitle_section">
-        <div class="form-group">
-            <label for="input" class="label">Event Title</label>
-            <input class="form-control" type="text" id="eventTitle" name="inputName" placeholder="Your Event Title"
-                value="" autocomplete="on" />
-        </div>
-    </div>
+                </div>
+            </div>
 
-    {{!-- Event Title Section --}}
-    <div class="eventDescription_section">
-        <div class="form-group">
-            <label for="input" class="label">Event Title</label>
-            <input class="form-control" type="text" id="eventTitle" name="inputName" placeholder="Your Event Title"
-                value="" autocomplete="on" />
+            {{!-- Submit Button --}}
+            <div class="submitBtn_section">
+                <button type="submit" class="submit-btn" id="submitBtn">Submit</button>
+
+            </div>
+
         </div>
     </div>
 
