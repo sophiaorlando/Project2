@@ -29,7 +29,25 @@
 
         <hr>
 
+        {{#each event}}
+
         <div class="row display-flex event_item" data-id={{id}}>
+            <div class="col-lg-10">
+                <h5>{{eventTitle}}</h5>
+                <div class="event_info">
+                    <h6>{{eventDate}}</h6>
+                    <h6>{{eventTime}}</h6>
+                </div>
+            </div>
+
+            <div class="col-lg-2 arrow">
+                <i class="fas fa-chevron-right"></i>
+            </div>
+        </div>
+
+        {{/each}}
+
+        {{!-- <div class="row display-flex event_item" data-id={{id}}>
             <div class="col-lg-10">
                 <h5>eventName</h5>
                 <div class="event_info">
@@ -55,21 +73,7 @@
             <div class="col-lg-2 arrow">
                 <i class="fas fa-chevron-right"></i>
             </div>
-        </div>
-
-        <div class="row display-flex event_item" data-id={{id}}>
-            <div class="col-lg-10">
-                <h5>eventName</h5>
-                <div class="event_info">
-                    <h6>eventDate</h6>
-                    <h6>eventHour</h6>
-                </div>
-            </div>
-
-            <div class="col-lg-2 arrow">
-                <i class="fas fa-chevron-right"></i>
-            </div>
-        </div>
+        </div> --}}
 
 
     </section>

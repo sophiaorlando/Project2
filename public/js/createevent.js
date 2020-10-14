@@ -19,6 +19,8 @@ $(document).ready(function() {
 	$('#submitBtn').on('click', function(event) {
 		event.preventDefault()
 
+		const beachId = $(this).data('id')
+
 		const eventType = $('.dropdown_btn option:selected').text()
 		// alert(eventType)
 		const selectDate = $('.select-date')
@@ -51,11 +53,12 @@ $(document).ready(function() {
 		// alert('Thanks for the submission')
 
 		const eventObj = {
-			event_type: eventType,
-			date: selectDate,
-			time: selectTime,
-			event_title: eventTitle,
-			event_description: eventDescription,
+			eventType: eventType,
+			eventDate: selectDate,
+			eventTime: selectTime,
+			eventTitle: eventTitle,
+			eventDescription: eventDescription,
+			beachInfoId: beachId,
 		}
 
 		insertEvent(eventObj)
@@ -64,11 +67,18 @@ $(document).ready(function() {
 	// A function for creating an author. Calls getAuthors upon completion
 	function insertEvent(eventObj) {
 		// Send the POST request
-		$.post('/api/events', eventObj, function() {
-			console.log('Added a new event')
-			// Reload the page to get the udpated list
-			const beachId = $('.title').data('id')
-			window.location.href = `/beach/${beachId}`
+		// $.post('/api/events', eventObj, function() {})
+
+		$.ajax({
+			type: 'POST',
+			url: '/api/events',
+			data: eventObj,
+			success: function() {
+				console.log('Added a new event')
+				// Reload the page to get the udpated list
+				const beachId = $('.title').data('id')
+				window.location.href = `/beach/${beachId}`
+			},
 		})
 	}
 })
