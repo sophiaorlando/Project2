@@ -18,6 +18,15 @@ module.exports = function(sequelize, DataTypes) {
 			allowNull: false,
 		},
 	})
+
+	User.associate = function(models) {
+		// We're saying that a Post should belong to an Author
+		// A Post can't be created without an Author due to the foreign key constraint
+		User.hasMany(models.Register, {
+			onDelete: 'cascade',
+		})
+	}
+
 	// Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
 	User.prototype.validPassword = function(password) {
 		return bcrypt.compareSync(password, this.password)
@@ -27,16 +36,6 @@ module.exports = function(sequelize, DataTypes) {
 	User.addHook('beforeCreate', (user) => {
 		user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null)
 	})
-
-	User.associate = function(models) {
-		// We're saying that a Post should belong to an Author
-		// A Post can't be created without an Author due to the foreign key constraint
-		User.belongsTo(models.Register, {
-			foreignKey: {
-				allowNull: false,
-			},
-		})
-	}
 
 	return User
 }
