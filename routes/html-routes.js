@@ -122,6 +122,9 @@ module.exports = function(app) {
 
 	// BEACH
 	app.get('/beach/:id', (req, res) => {
+		// // If the user already has an account send them to the members page
+
+		// res.sendFile(path.join(__dirname, '../public/signup.html'))
 		const beachId = req.params.id
 
 		db.beachInfo
@@ -129,17 +132,25 @@ module.exports = function(app) {
 				where: {
 					id: beachId,
 				},
+				include: [db.Events],
 			})
 			.then((data) => {
+				// console.log(data)
 				const dataString = JSON.stringify(data)
 				const dataParsed = JSON.parse(dataString)
-				console.log(dataParsed)
+				console.log(dataParsed[0].Events)
+
+				// if (req.user) {
+				// 	console.log('redirection')
+				// 	res.redirect('/members')
+				// }
 
 				res.render('beach', {
 					main: 'main.css',
 					style: 'beach.css',
 					script: 'beach.js',
 					beach: dataParsed[0],
+					event: dataParsed[0].Events,
 				})
 			})
 	})
