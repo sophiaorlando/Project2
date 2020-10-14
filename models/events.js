@@ -29,7 +29,17 @@ module.exports = function(sequelize, DataTypes) {
       foreignKey: {
         allowNull: false
       }
-    });
+		});
+		
+  };
+  Events.associate = function(models) {
+    console.log("associate");
+    // We're saying that a Post should belong to an Author
+    // A Post can't be created without an Author due to the foreign key constraint
+    Events.hasMany(models.Registered, {
+      onDelete: "cascade",
+		});
+		console.log("not reading")
   };
 
   return Events;
