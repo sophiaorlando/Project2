@@ -71,7 +71,7 @@ module.exports = function(app) {
 		})
 	})
 
-	// CREATE EVENT
+	// CREATE EVENT PAGE
 	app.get('/createevent/:id', (req, res) => {
 		db.beachInfo
 			.findAll({
@@ -80,11 +80,11 @@ module.exports = function(app) {
 				},
 			})
 			.then((data) => {
-				console.log(data)
+				// console.log(data)
 				const dataString = JSON.stringify(data)
 				// console.log(dataString)
 				const dataParsed = JSON.parse(dataString)
-				console.log(dataParsed)
+				// console.log(dataParsed)
 
 				res.render('createevent', {
 					main: 'main.css',
@@ -93,6 +93,31 @@ module.exports = function(app) {
 					beach: dataParsed,
 				})
 			})
+	})
+
+	// EVENT PAGE
+	app.get('/event/:id', (req, res) => {
+		db.Events.findAll({
+			where: {
+				id: req.params.id,
+			},
+			include: [db.beachInfo, db.Register],
+		}).then((data) => {
+			console.log(data)
+			const dataString = JSON.stringify(data)
+			// console.log(dataString)
+			const dataParsed = JSON.parse(dataString)
+			console.log(dataParsed)
+			console.log(dataParsed[0].beachInfo)
+
+			res.render('event', {
+				main: 'main.css',
+				style: 'event.css',
+				script: 'event.js',
+				eventInfo: dataParsed[0],
+				beachInfo: dataParsed[0].beachInfo,
+			})
+		})
 	})
 
 	// COUNTY

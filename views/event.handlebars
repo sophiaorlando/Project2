@@ -1,0 +1,21 @@
+<div class="container-fluid wrapper">
+    <div class="back_arrow" data-id={{beachInfo.id}}>
+        <i class="fas fa-long-arrow-alt-left"></i>
+
+    </div>
+    <div class="event_info" align="center">
+        <h2>{{eventInfo.eventTitle}}</h2>
+        <div class="event_data">
+            <h5><i class="fas fa-map-marker-alt"></i> {{beachInfo.siteName}}</h5>
+            <h5><i class="fas fa-calendar-day"></i> {{eventInfo.eventDate}}</h5>
+            <h5><i class="far fa-clock"></i> {{eventInfo.eventTime}}</h5>
+        </div>
+    </div>
+</div>
+
+<div class="container description">
+    <h4>Event Description</h4><br>
+    <h5>{{{eventInfo.eventDescription}}}</h5>
+    <br>
+    <button class="register-btn">Register to Event</button>
+</div>
