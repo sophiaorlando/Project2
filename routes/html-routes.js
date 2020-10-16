@@ -9,7 +9,7 @@ module.exports = function(app) {
 	app.get('/test', isAuthenticated, (req, res) => {
 		// If the user already has an account send them to the members page
 		if (req.user) {
-			res.render('team')
+			res.json(req.user)
 		}
 	})
 
