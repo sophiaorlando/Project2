@@ -6,13 +6,15 @@ const db = require('../models')
 const isAuthenticated = require('../config/middleware/isAuthenticated')
 
 module.exports = function(app) {
+	app.get('/test', isAuthenticated, (req, res) => {
+		// If the user already has an account send them to the members page
+		if (req.user) {
+			res.json(req.user)
+		}
+	})
+
 	// HOMEPAGE
 	app.get('/', (req, res) => {
-		// If the user already has an account send them to the members page
-		// if (req.user) {
-		//   res.redirect("/members");
-		// }
-		// res.sendFile(path.join(__dirname, "../public/signup.html"));
 		db.beachInfo.findAll({}).then((results) => {
 			const dataString = JSON.stringify(results)
 			// console.log(dataString)
@@ -52,9 +54,9 @@ module.exports = function(app) {
 
 	app.get('/login', (req, res) => {
 		// If the user already has an account send them to the members page
-		if (req.user) {
-			res.redirect('/members')
-		}
+		// if (req.user) {
+		// 	res.redirect('/members')
+		// }
 		res.render('login', {
 			main: 'main.css',
 			style: 'login.css',
@@ -72,27 +74,29 @@ module.exports = function(app) {
 	})
 
 	// CREATE EVENT PAGE
-	app.get('/createevent/:id', (req, res) => {
-		db.beachInfo
-			.findAll({
-				where: {
-					id: req.params.id,
-				},
-			})
-			.then((data) => {
-				// console.log(data)
-				const dataString = JSON.stringify(data)
-				// console.log(dataString)
-				const dataParsed = JSON.parse(dataString)
-				// console.log(dataParsed)
-
-				res.render('createevent', {
-					main: 'main.css',
-					style: 'createevent.css',
-					script: 'createevent.js',
-					beach: dataParsed,
+	app.get('/createevent/:id', isAuthenticated, (req, res) => {
+		if (req.user) {
+			db.beachInfo
+				.findAll({
+					where: {
+						id: req.params.id,
+					},
 				})
-			})
+				.then((data) => {
+					// console.log(data)
+					const dataString = JSON.stringify(data)
+					// console.log(dataString)
+					const dataParsed = JSON.parse(dataString)
+					// console.log(dataParsed)
+
+					res.render('createevent', {
+						main: 'main.css',
+						style: 'createevent.css',
+						script: 'createevent.js',
+						beach: dataParsed,
+					})
+				})
+		}
 	})
 
 	// EVENT PAGE
@@ -121,7 +125,7 @@ module.exports = function(app) {
 	})
 
 	// COUNTY
-	app.get('/:county', (req, res) => {
+	app.get('/counties/:county', (req, res) => {
 		// console.log('----------------')
 
 		db.beachInfo
@@ -181,8 +185,6 @@ module.exports = function(app) {
 				})
 			})
 	})
-
-	app.get('/beach/:id/')
 
 	// Here we've add our isAuthenticated middleware to this route.
 	// If a user who is not logged in tries to access this route they will be redirected to the signup page
