@@ -6,13 +6,16 @@ const db = require('../models')
 const isAuthenticated = require('../config/middleware/isAuthenticated')
 
 module.exports = function(app) {
+	app.get('/test', isAuthenticated, (req, res) => {
+		// If the user already has an account send them to the members page
+		if (req.user) {
+			res.render('members')
+		}
+		res.render('team')
+	})
+
 	// HOMEPAGE
 	app.get('/', (req, res) => {
-		// If the user already has an account send them to the members page
-		// if (req.user) {
-		//   res.redirect("/members");
-		// }
-		// res.sendFile(path.join(__dirname, "../public/signup.html"));
 		db.beachInfo.findAll({}).then((results) => {
 			const dataString = JSON.stringify(results)
 			// console.log(dataString)
@@ -121,7 +124,7 @@ module.exports = function(app) {
 	})
 
 	// COUNTY
-	app.get('/:county', (req, res) => {
+	app.get('/county/:county', (req, res) => {
 		// console.log('----------------')
 
 		db.beachInfo
@@ -181,8 +184,6 @@ module.exports = function(app) {
 				})
 			})
 	})
-
-	app.get('/beach/:id/')
 
 	// Here we've add our isAuthenticated middleware to this route.
 	// If a user who is not logged in tries to access this route they will be redirected to the signup page

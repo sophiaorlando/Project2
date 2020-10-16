@@ -9,7 +9,7 @@ $(document).ready(() => {
 		const urlCounty = selectedCounty.replace(/\s/g, '%20')
 
 		console.log(urlCounty)
-		const url = '/:' + urlCounty
+		const url = '/county/:' + urlCounty
 
 		// ajax call to retrieve data and populate the page with information about selected state
 
