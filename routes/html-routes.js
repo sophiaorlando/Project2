@@ -124,7 +124,7 @@ module.exports = function(app) {
 	})
 
 	// COUNTY
-	app.get('/county/:county', (req, res) => {
+	app.get('/:county', (req, res) => {
 		// console.log('----------------')
 
 		db.beachInfo
