@@ -140,7 +140,7 @@ module.exports = function(app) {
   });
 
   // COUNTY
-  app.get("/:county", (req, res) => {
+  app.get("/counties/:county", (req, res) => {
     // console.log('----------------')
 
     db.beachInfo

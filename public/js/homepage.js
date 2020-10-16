@@ -8,8 +8,10 @@ $(document).ready(() => {
     const selectedCounty = $(this).data("county");
     const urlCounty = selectedCounty.replace(/\s/g, "%20");
 
-    console.log(urlCounty);
-    const url = "/:" + urlCounty;
+		console.log(urlCounty)
+		const url = '/counties/:' + urlCounty
+
+		window.location.href = url
 
     // ajax call to retrieve data and populate the page with information about selected county
 
