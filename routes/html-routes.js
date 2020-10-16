@@ -9,9 +9,8 @@ module.exports = function(app) {
 	app.get('/test', isAuthenticated, (req, res) => {
 		// If the user already has an account send them to the members page
 		if (req.user) {
-			res.render('members')
+			res.render('team')
 		}
-		res.render('team')
 	})
 
 	// HOMEPAGE
@@ -55,9 +54,9 @@ module.exports = function(app) {
 
 	app.get('/login', (req, res) => {
 		// If the user already has an account send them to the members page
-		if (req.user) {
-			res.redirect('/members')
-		}
+		// if (req.user) {
+		// 	res.redirect('/members')
+		// }
 		res.render('login', {
 			main: 'main.css',
 			style: 'login.css',
@@ -75,27 +74,29 @@ module.exports = function(app) {
 	})
 
 	// CREATE EVENT PAGE
-	app.get('/createevent/:id', (req, res) => {
-		db.beachInfo
-			.findAll({
-				where: {
-					id: req.params.id,
-				},
-			})
-			.then((data) => {
-				// console.log(data)
-				const dataString = JSON.stringify(data)
-				// console.log(dataString)
-				const dataParsed = JSON.parse(dataString)
-				// console.log(dataParsed)
-
-				res.render('createevent', {
-					main: 'main.css',
-					style: 'createevent.css',
-					script: 'createevent.js',
-					beach: dataParsed,
+	app.get('/createevent/:id', isAuthenticated, (req, res) => {
+		if (req.user) {
+			db.beachInfo
+				.findAll({
+					where: {
+						id: req.params.id,
+					},
 				})
-			})
+				.then((data) => {
+					// console.log(data)
+					const dataString = JSON.stringify(data)
+					// console.log(dataString)
+					const dataParsed = JSON.parse(dataString)
+					// console.log(dataParsed)
+
+					res.render('createevent', {
+						main: 'main.css',
+						style: 'createevent.css',
+						script: 'createevent.js',
+						beach: dataParsed,
+					})
+				})
+		}
 	})
 
 	// EVENT PAGE
