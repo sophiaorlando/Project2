@@ -12,6 +12,7 @@ dark: #263238
 	box-sizing: border-box;
 }
 
+html,
 body {
 	font-family: 'Mukta', sans-serif;
 }

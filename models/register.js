@@ -14,10 +14,12 @@ module.exports = function(sequelize, DataTypes) {
       },
     })
 
-    Register.hasMany(models.User, {
-      onDelete: "cascade"
-    });
-  };
+		Register.belongsTo(models.User, {
+			foreignKey: {
+				allowNull: false,
+			},
+		})
+	}
 
   return Register;
 };
