@@ -43,9 +43,8 @@ header .overlay {
   z-index: 1;
 }
 
-
 #meet-team {
-  background-image: url("https://www.news4jax.com/resizer/rMQcHupWSI4xDdTcWdMncrE3FKM=/1600x1051/smart/filters:format(jpeg):strip_exif(true):strip_icc(true):no_upscale(true):quality(65)/cloudfront-us-east-1.images.arcpublishing.com/gmg/XVQEVJK6IJBCHI5NIEN55GMEZ4.jpg");
+  background-color: lightslategray;
   background-size: cover;
   position: relative;
   height: 50px;
