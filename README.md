@@ -30,8 +30,8 @@ None
 
 ## Demo
 
-
 ![Example of Applications](assets/ezgif.com-video-to-gif.gif)
+
 
 ## Contributors
 
