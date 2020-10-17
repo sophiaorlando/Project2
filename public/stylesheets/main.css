@@ -61,7 +61,12 @@ body {
 }
 /* Page Heading */
 .my-4{
-	color: crimson;
+	color: black;
+}
+.Pone {
+	padding: 2rem;
+	font-size: 1.5rem;
+	
 }
 
 h1 {
