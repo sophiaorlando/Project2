@@ -40,6 +40,9 @@ $(document).ready(function() {
 			.trim()
 		// alert('text is ' + eventDescription)
 
+		const userId = $('#userId').data('id')
+		console.log(typeof userId)
+
 		if (
 			!eventType ||
 			!selectDate ||
@@ -59,7 +62,10 @@ $(document).ready(function() {
 			eventTitle: eventTitle,
 			eventDescription: eventDescription,
 			beachInfoId: beachId,
+			createdByUser: userId,
 		}
+
+		console.log(eventObj)
 
 		insertEvent(eventObj)
 	})

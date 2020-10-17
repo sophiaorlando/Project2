@@ -1,6 +1,6 @@
 .wrapper {
 	display: flex;
-	height: 30vh;
+	height: 40vh;
 	flex-direction: column;
 	justify-content: space-between;
 	background-image: url(https://source.unsplash.com/random);
@@ -18,7 +18,7 @@
 	left: 0;
 	right: 0;
 	bottom: 0;
-	height: 30vh;
+	height: 40vh;
 	background: linear-gradient(to bottom, transparent 0%, black 100%);
 	z-index: 0;
 }
@@ -27,7 +27,9 @@
 	z-index: 1;
 }
 
-.event_info > h2 {
+.event_info > h2,
+h4,
+p {
 	color: white;
 	display: flex;
 	flex-direction: column;
