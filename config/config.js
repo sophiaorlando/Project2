@@ -6,7 +6,7 @@ module.exports = {
     password: "i8jx0yajrxrok3p1",
     database: "iem3211s5bdww0v4",
     host: "f2fbe0zvg9j8p9ng.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-    dialect: "v4.0.0",
+    dialect: "mysql",
   },
   test: {
     username: process.env.DB_username,
@@ -16,7 +16,7 @@ module.exports = {
     dialect: "mysql",
   },
   production: {
-    use_env_variable: "mysql://kc8ltxt5xjkywh0c:i8jx0yajrxrok3p1@f2fbe0zvg9j8p9ng.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/iem3211s5bdww0v4",
+    use_env_variable: process.env.JB_url,
     dialect: "mysql",
   },
 };
