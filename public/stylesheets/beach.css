@@ -15,7 +15,7 @@ body {
 
 /* Header  */
 .bg {
-	background: #ff9721;
+	background: rgb(145, 191, 236);
 }
 
 .main {
@@ -61,7 +61,7 @@ section {
 
 .create_btn {
 	padding: 0.6rem 0.8rem;
-	background: #ff9721;
+	background: rgb(145, 191, 236);
 	border-radius: 0.2rem;
 	border: none;
 	font-size: 12px;
@@ -70,7 +70,7 @@ section {
 }
 
 .create_btn:hover {
-	background: #fea43e;
+	background: rgb(145, 191, 236);
 	cursor: pointer;
 }
 
