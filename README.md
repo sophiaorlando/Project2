@@ -28,9 +28,14 @@ None
 
 ![]()
 
+## Demo
+
+
+![Example of Applications](assets/ezgif.com-video-to-gif.gif)
+
 ## Contributors
 
-- Spohia Orlando
+- Sophia Orlando
 - Carlos Aguilar
 - Pierre Pariente
 - Cody Walter
@@ -53,8 +58,8 @@ None
 
 ![Profile Image](https://github.com/codywalter.png?size=50)
 
-View the project repository in GitHub at: https://github.com/sophiaorlando/Project2
+## View the project repository in GitHub at: https://github.com/sophiaorlando/Project2
 
-View deployed site at: https://thawing-temple-82462.herokuapp.com/
+## View deployed site at: https://thawing-temple-82462.herokuapp.com/
 
-If you have any questions, contact the authors directly.
+### If you have any questions, contact the authors directly.
