@@ -1,5 +1,4 @@
 $(document).ready(() => {
-	alert('alert on login page')
 	// Getting references to our form and inputs
 	const loginForm = $('form.login')
 	const emailInput = $('input#email-input')
