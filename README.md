@@ -30,10 +30,12 @@ None
 
 ## Demo
 
+![Example of Applications](assets/ezgif.com-video-to-gif.gif)
+
 
 ## Contributors
 
-- Spohia Orlando
+- Sophia Orlando
 - Carlos Aguilar
 - Pierre Pariente
 - Cody Walter
