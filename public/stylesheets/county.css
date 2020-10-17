@@ -34,7 +34,7 @@ i {
 
 .beach:hover {
 	background: #07425e63;
-	border-bottom: #fea43e;
+	border-bottom: rgb(145, 191, 236);
 	cursor: pointer;
 }
 
