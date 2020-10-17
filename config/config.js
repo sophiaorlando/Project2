@@ -6,7 +6,7 @@ module.exports = {
     password: "i8jx0yajrxrok3p1",
     database: "iem3211s5bdww0v4",
     host: "f2fbe0zvg9j8p9ng.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-    dialect: "mysql",
+    dialect: "v4.0.0",
   },
   test: {
     username: process.env.DB_username,
