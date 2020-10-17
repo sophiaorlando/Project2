@@ -20,6 +20,9 @@ module.exports = function(sequelize, DataTypes) {
 			type: DataTypes.TEXT,
 			allowNull: false,
 		},
+		createdByUser: {
+			type: DataTypes.INTEGER,
+		},
 	})
 
 	Events.associate = function(models) {
