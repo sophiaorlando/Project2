@@ -6,14 +6,13 @@ module.exports = {
     password: process.env.JB_password,
     database: process.env.JB_database,
     host: process.env.JB_host,
-    port: 3306,
     dialect: "mysql",
   },
   test: {
     username: "root",
     password: null,
     database: "database_test",
-    host: "127.0.0.1",
+    host: "",
     dialect: "mysql",
   },
   production: {
